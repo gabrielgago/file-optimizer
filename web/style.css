@@ -1,0 +1,273 @@
+/* Estilos gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f2f1;
+    color: #323130;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 32px;
+}
+
+header {
+    margin-bottom: 32px;
+    text-align: center;
+    padding: 24px 0;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: #0078d4;
+}
+
+.main-content {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+.panel-content {
+    padding: 24px 0;
+}
+
+.search-section,
+.progress-section,
+.files-section,
+.folders-section {
+    margin-bottom: 32px;
+}
+
+.search-controls,
+.folders-section > div,
+.folders-container,
+.files-container {
+    margin-bottom: 16px;
+}
+
+.search-controls {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.search-controls.left-align {
+    justify-content: flex-start;
+}
+
+fluent-text-field,
+input[type="text"],
+input[type="range"],
+input[type="file"] {
+    margin-right: 12px;
+    margin-bottom: 0;
+}
+
+input[type="range"] {
+    margin-top: 0;
+}
+
+.search-controls span#slider-tamanho-label {
+    min-width: 60px;
+    display: inline-block;
+    text-align: left;
+    font-weight: 500;
+    color: #0078d4;
+}
+
+.folders-section label,
+.folders-section input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.folders-container {
+    max-height: 260px;
+    overflow-y: auto;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.files-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 8px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+}
+
+.ms-Table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+.ms-Table th,
+.ms-Table td {
+    padding: 12px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.ms-Table th {
+    background-color: #f3f2f1;
+    text-align: left;
+    font-weight: 600;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+footer {
+    text-align: center;
+    color: #605e5c;
+    padding: 16px 0;
+    margin-top: 32px;
+}
+
+/* Estilo para mensagens no log */
+.log-container {
+    height: 220px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-family: 'Segoe UI', 'Consolas', monospace;
+    font-size: 13px; /* diminuído de 15px para 13px */
+    line-height: 1.5;
+}
+
+#log-content {
+    white-space: pre-wrap;
+}
+
+.log-info,
+.log-success,
+.log-error,
+.log-warning {
+    font-size: 13px; /* diminuído de 15px para 13px */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.log-info {
+    color: #0078d4;
+}
+
+.log-success {
+    color: #107c10;
+}
+
+.log-error {
+    color: #d13438;
+}
+
+.log-warning {
+    color: #ffaa44;
+}
+
+.log-icon {
+    font-size: 18px;
+    margin-right: 4px;
+    flex-shrink: 0;
+}
+
+/* Dialog styles */
+.dialog-content {
+    padding: 24px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+fluent-dialog h2 {
+    margin-bottom: 24px;
+}
+
+/* Estilo para o botão de busca/cancelar */
+.botao-busca {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    min-width: 140px;
+    height: 36px;
+    font-weight: 600;
+    margin-right: 8px;
+    margin-bottom: 0;
+}
+
+.botao-busca:hover {
+    background-color: #106ebe;
+}
+
+.botao-busca:active {
+    transform: scale(0.98);
+}
+
+.botao-busca.cancelar {
+    background-color: #d13438;
+}
+
+.botao-busca.cancelar:hover {
+    background-color: #a4262c;
+}
+
+/* Overlay spinner centralizado */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(40, 40, 40, 0.25);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    padding: 32px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.spinner-content img {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 12px;
+}
+
+.spinner-content h2 {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    color: #0078d4;
+    text-align: center;
+}
