@@ -126,8 +126,17 @@ function logarUI(mensagem, tipo = 'info') {
     eel.logando(`[FRONTEND] ${mensagem}`);
 }
 
-eel.expose(atualizar_progress_bar);
+eel.expose(obter_extensoes_selecionadas);
+function obter_extensoes_selecionadas() {
+    const selecionadas = [];
+    document.querySelectorAll('.form-check-input:checked').forEach(cb => {
+        selecionadas.push(cb.value);
+    });
+    return selecionadas;
+}
 
+
+eel.expose(atualizar_progress_bar);
 function atualizar_progress_bar(porcentagem, minutosRestantes=0) {
     const barra = document.getElementById("progresso-barra");
     if (barra) {
@@ -219,7 +228,31 @@ eel.expose(atualizar_lista_arquivos);
 function atualizar_lista_arquivos(arquivos) {
     filesTableBody.innerHTML = '';
     arquivos.forEach(arquivo => {
+
+        // <th><div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".pdf" id="selecione_todos_files"><label class="form-check-label" for="selecione_todos_files">Selecione</label></div></th>
+
         const tr = document.createElement('tr');
+
+        // Coluna de checkbox para seleção
+        const tdCheck = document.createElement('td');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'checkbox-arquivo';
+        checkbox.value = arquivo.caminho;
+        checkbox.addEventListener('change', () => {
+            // Atualiza o arquivo selecionado ao marcar/desmarcar
+            if (checkbox.checked) {
+                arquivoSelecionado = arquivo;
+            } else {
+                // Se desmarcar, limpa a seleção
+                if (arquivoSelecionado && arquivoSelecionado.caminho === arquivo.caminho) {
+                    arquivoSelecionado = null;
+                }
+            }
+        });
+        tdCheck.appendChild(checkbox);
+        tr.appendChild(tdCheck);
+
         const tdNome = document.createElement('td');
         const nomeCorrigido = arquivo.nome.replace(/[/\\]+[^/\\]+[/\\]/, '/');
         tdNome.textContent = nomeCorrigido;

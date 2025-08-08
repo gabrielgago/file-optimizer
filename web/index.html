@@ -38,7 +38,69 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
+                            <!-- NOVO: Filtros por tipo de arquivo -->
+<div class="file-types-section" style="margin-bottom: 24px;">
+    <h3 class="ms-font-l">Tipos de arquivos a monitorar</h3>
+
+    <!-- Documentos -->
+    <div class="mb-2 mt-2">
+        <strong>Documentos:</strong><br>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".pdf" id="ext_pdf"><label class="form-check-label" for="ext_pdf">.pdf</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".doc" id="ext_doc"><label class="form-check-label" for="ext_doc">.doc</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".docx" id="ext_docx"><label class="form-check-label" for="ext_docx">.docx</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".xls" id="ext_xls"><label class="form-check-label" for="ext_xls">.xls</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".xlsx" id="ext_xlsx"><label class="form-check-label" for="ext_xlsx">.xlsx</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".ppt" id="ext_ppt"><label class="form-check-label" for="ext_ppt">.ppt</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".pptx" id="ext_pptx"><label class="form-check-label" for="ext_pptx">.pptx</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".txt" id="ext_txt"><label class="form-check-label" for="ext_txt">.txt</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".rtf" id="ext_rtf"><label class="form-check-label" for="ext_rtf">.rtf</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".odt" id="ext_odt"><label class="form-check-label" for="ext_odt">.odt</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".csv" id="ext_csv"><label class="form-check-label" for="ext_csv">.csv</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".json" id="ext_json"><label class="form-check-label" for="ext_json">.json</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".xml" id="ext_xml"><label class="form-check-label" for="ext_xml">.xml</label></div>
+        <!-- adicione mais se necessário -->
+    </div>
+
+    <!-- Imagens -->
+    <div class="mb-2">
+        <strong>Imagens:</strong><br>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".jpg" id="ext_jpg"><label class="form-check-label" for="ext_jpg">.jpg</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".png" id="ext_png"><label class="form-check-label" for="ext_png">.png</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".gif" id="ext_gif"><label class="form-check-label" for="ext_gif">.gif</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".bmp" id="ext_bmp"><label class="form-check-label" for="ext_bmp">.bmp</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".webp" id="ext_webp"><label class="form-check-label" for="ext_webp">.webp</label></div>
+        <!-- adicione mais imagens conforme necessário -->
+    </div>
+
+    <!-- Vídeos -->
+    <div class="mb-2">
+        <strong>Vídeos:</strong><br>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".mp4" id="ext_mp4"><label class="form-check-label" for="ext_mp4">.mp4</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".mkv" id="ext_mkv"><label class="form-check-label" for="ext_mkv">.mkv</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".avi" id="ext_avi"><label class="form-check-label" for="ext_avi">.avi</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".mov" id="ext_mov"><label class="form-check-label" for="ext_mov">.mov</label></div>
+    </div>
+
+    <!-- Áudio -->
+    <div class="mb-2">
+        <strong>Áudio:</strong><br>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".mp3" id="ext_mp3"><label class="form-check-label" for="ext_mp3">.mp3</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".wav" id="ext_wav"><label class="form-check-label" for="ext_wav">.wav</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".flac" id="ext_flac"><label class="form-check-label" for="ext_flac">.flac</label></div>
+    </div>
+
+    <!-- Outros -->
+    <div class="mb-2">
+        <strong>Outros:</strong><br>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".log" id="ext_log"><label class="form-check-label" for="ext_log">.log</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".md" id="ext_md"><label class="form-check-label" for="ext_md">.md</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".eml" id="ext_eml"><label class="form-check-label" for="ext_eml">.eml</label></div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".fopt" id="ext_fopt" checked disabled><label class="form-check-label" for="ext_fopt">.fopt (protegido)</label></div>
+    </div>
+</div>
+
+
                             <!-- NOVO: Lista de seleção de pastas -->
                             <div class="folders-section" id="folders-section" style="margin-bottom: 24px;">
                                 <h3 class="ms-font-l">Selecione as pastas para monitorar</h3>
@@ -88,6 +150,7 @@
                                     <table class="ms-Table">
                                         <thead>
                                             <tr>
+                                                <th><div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" value=".pdf" id="selecione_todos_files"><label class="form-check-label" for="selecione_todos_files"></label></div></th>
                                                 <th>Nome</th>
                                                 <th>Tamanho</th>
                                                 <th>Tipo</th>
@@ -97,6 +160,9 @@
                                         <tbody id="files-table-body">
                                             <!-- Arquivos serão adicionados aqui dinamicamente -->
                                         </tbody>
+                                        <tfoot>
+                                            <button class="botao-busca" style="background-color: rgb(0, 120, 212);" disabled>Compactar em Lote</button>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

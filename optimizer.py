@@ -4,6 +4,8 @@ import zipfile
 import shutil
 import subprocess
 import threading
+from typing import List
+
 import eel
 from pathlib import Path
 from datetime import datetime
@@ -95,6 +97,14 @@ def varrer_arquivos_js(tamanho_minimo_mb, pastas=None):
     varredura_thread.start()
     return True
 
+# Python
+extensoes_selecionadas = []
+
+@eel.expose
+def obter_extensoes_selecionadas_callback(lista):
+    global extensoes_selecionadas
+    extensoes_selecionadas = lista
+
 def fazer_varredura(tamanho_minimo_mb, pastas=None):
     global cancelar_varredura
     if pastas is None or not pastas:
@@ -120,7 +130,11 @@ def fazer_varredura(tamanho_minimo_mb, pastas=None):
                 pass
         logging.info(mensagem)
 
+    extensoes = eel.obter_extensoes_selecionadas()()
+
     adicionar_log("Iniciando varredura nas pastas selecionadas...")
+    adicionar_log(f"Extensões selecionadas: {extensoes}")
+
     total_arquivos = 0
     arquivos_por_pasta = {}
     for pasta in pastas:
