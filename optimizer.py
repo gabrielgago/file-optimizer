@@ -10,6 +10,7 @@ from datetime import datetime
 import logging
 import re
 from tqdm import tqdm
+import time
 
 
 # Diretórios padrão
@@ -246,13 +247,15 @@ def compactar_arquivo_fopt_js(caminho):
             logging.info(f"Iniciando compactação do arquivo: {caminho} para {destino}")
             tamanho_total = os.path.getsize(caminho)
 
-            with zipfile.ZipFile(destino, 'w', compression=zipfile.ZIP_LZMA) as zipf:
+            with zipfile.ZipFile(destino, 'w', compression=zipfile.ZIP_LZMA, allowZip64=True) as zipf:
                 zinfo = zipfile.ZipInfo(nome_arquivo)
                 zinfo.compress_type = zipfile.ZIP_LZMA
 
                 tamanho_total = os.path.getsize(caminho)
                 total_lido = 0
-                ultima_porcentagem = -1  # Para evitar chamadas repetidas
+                ultima_porcentagem = -1
+
+                start_time = time.time()
 
                 with open(caminho, 'rb') as f_in:
                     with zipf.open(zinfo, 'w') as f_out:
@@ -266,8 +269,18 @@ def compactar_arquivo_fopt_js(caminho):
                                 pbar.update(len(chunk))
 
                                 porcentagem = int((total_lido / tamanho_total) * 100)
+
                                 if porcentagem != ultima_porcentagem:
-                                    eel.atualizar_progress_bar(porcentagem)
+                                    tempo_passado = time.time() - start_time
+                                    if total_lido > 0 and tempo_passado > 0:
+                                        velocidade_media = total_lido / tempo_passado  # bytes por segundo
+                                        restante = tamanho_total - total_lido
+                                        segundos_estimados = restante / velocidade_media
+                                        minutos_estimados = round(segundos_estimados / 60)
+                                    else:
+                                        minutos_estimados = 0
+
+                                    eel.atualizar_progress_bar(porcentagem, minutos_estimados)
                                     ultima_porcentagem = porcentagem
 
             logging.info(f"Arquivo compactado e salvo em: {destino}")
@@ -445,6 +458,9 @@ def main():
     try:
         import tkinter as tk
         root = tk.Tk()
+
+        root.iconbitmap("C:\\Users\\Gabriel\\Documents\\projetos\\file-optimizer\\logo.ico")
+
         root.withdraw()
         screen_width = root.winfo_screenwidth()
         screen_height = root.winfo_screenheight()

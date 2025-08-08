@@ -22,6 +22,7 @@ const checkboxSelecionarTodos = document.getElementById('checkbox-selecionar-tod
 const filtroPastas = document.getElementById('filtro-pastas');
 const compactarDestinoInput = document.getElementById('compactar-destino');
 const destinoAtualSpan = document.getElementById('destino-atual');
+const textoProgresso = document.getElementById('texto-progresso');
 let pastaDestinoAtual = null;
 
 // Sincronização slider/campo texto
@@ -127,11 +128,12 @@ function logarUI(mensagem, tipo = 'info') {
 
 eel.expose(atualizar_progress_bar);
 
-function atualizar_progress_bar(porcentagem) {
+function atualizar_progress_bar(porcentagem, minutosRestantes=0) {
     const barra = document.getElementById("progresso-barra");
     if (barra) {
         barra.style.width = porcentagem + "%";
         barra.innerText = porcentagem + "%";
+        textoProgresso.innerText = `Processando... ${minutosRestantes} min restantes - ${porcentagem}%`;
     }
 }
 // Função utilitária para mostrar notificações Bootstrap
